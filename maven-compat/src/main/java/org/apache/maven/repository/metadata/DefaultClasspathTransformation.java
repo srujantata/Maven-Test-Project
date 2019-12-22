@@ -142,23 +142,17 @@ public class DefaultClasspathTransformation
                 MetadataGraphEdge[] sortedExits = exits.toArray( new MetadataGraphEdge[0] );
                 Arrays.sort( sortedExits
                         ,
-                        new Comparator<MetadataGraphEdge>()
-                        {
-                            public int compare( MetadataGraphEdge e1
-                                            , MetadataGraphEdge e2
-                                            )
+                        (e1, e2) -> {
+                            if ( e1.getDepth() == e2.getDepth() )
                             {
-                                if ( e1.getDepth() == e2.getDepth() )
+                                if ( e2.getPomOrder() == e1.getPomOrder() )
                                 {
-                                    if ( e2.getPomOrder() == e1.getPomOrder() )
-                                    {
-                                        return e1.getTarget().toString().compareTo( e2.getTarget().toString() );
-                                    }
-                                    return e2.getPomOrder() - e1.getPomOrder();
+                                    return e1.getTarget().toString().compareTo( e2.getTarget().toString() );
                                 }
-
-                                return e2.getDepth() - e1.getDepth();
+                                return e2.getPomOrder() - e1.getPomOrder();
                             }
+
+                            return e2.getDepth() - e1.getDepth();
                         }
                 );
 
