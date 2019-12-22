@@ -1494,7 +1494,10 @@ public class ModelMerger
     protected void mergeMailingList_OtherArchives( MailingList target, MailingList source, boolean sourceDominant,
                                                    Map<Object, Object> context )
     {
-        target.setOtherArchives( merge( target.getOtherArchives(), source.getOtherArchives(), sourceDominant, e -> e ) );
+        target.setOtherArchives( merge( target.getOtherArchives(), 
+                                        source.getOtherArchives(), 
+                                        sourceDominant,
+                                        e -> e ) );
     }
 
     protected void mergeDeveloper( Developer target, Developer source, boolean sourceDominant,
