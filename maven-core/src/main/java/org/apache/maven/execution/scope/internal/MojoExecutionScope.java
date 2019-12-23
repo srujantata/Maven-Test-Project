@@ -42,7 +42,8 @@ import com.google.inject.util.Providers;
 public class MojoExecutionScope
     implements Scope, MojoExecutionListener
 {
-    private static final Provider<Object> SEEDED_KEY_PROVIDER = () -> {
+    private static final Provider<Object> SEEDED_KEY_PROVIDER = () ->
+    {
         throw new IllegalStateException();
     };
 
@@ -107,7 +108,8 @@ public class MojoExecutionScope
 
     public <T> Provider<T> scope( final Key<T> key, final Provider<T> unscoped )
     {
-        return () -> {
+        return () ->
+        {
             LinkedList<ScopeState> stack = values.get();
             if ( stack == null || stack.isEmpty() )
             {

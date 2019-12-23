@@ -21,7 +21,6 @@ package org.apache.maven.repository.metadata;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 import org.apache.maven.artifact.ArtifactScopeEnum;
@@ -142,7 +141,8 @@ public class DefaultClasspathTransformation
                 MetadataGraphEdge[] sortedExits = exits.toArray( new MetadataGraphEdge[0] );
                 Arrays.sort( sortedExits
                         ,
-                        (e1, e2) -> {
+                        ( e1, e2 ) ->
+                        {
                             if ( e1.getDepth() == e2.getDepth() )
                             {
                                 if ( e2.getPomOrder() == e1.getPomOrder() )

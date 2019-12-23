@@ -125,7 +125,8 @@ public class StringVisitorModelInterpolator
             interpolator.addPostProcessor( postProcessor );
         }
         final RecursionInterceptor recursionInterceptor = createRecursionInterceptor();
-        return value -> {
+        return value ->
+        {
             if ( value != null && value.contains( "${" ) )
             {
                 String c = cache.get( value );

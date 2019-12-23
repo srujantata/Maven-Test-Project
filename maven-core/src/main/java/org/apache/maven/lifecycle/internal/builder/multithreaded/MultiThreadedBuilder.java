@@ -182,7 +182,8 @@ public class MultiThreadedBuilder
                                                           final ReactorContext reactorContext,
                                                           final TaskSegment taskSegment, final ThreadOutputMuxer muxer )
     {
-        return () -> {
+        return () ->
+        {
             // muxer.associateThreadWithProjectSegment( projectBuild );
             lifecycleModuleBuilder.buildProject( projectBuild.getSession(), rootSession, reactorContext,
                                                  projectBuild.getProject(), taskSegment );

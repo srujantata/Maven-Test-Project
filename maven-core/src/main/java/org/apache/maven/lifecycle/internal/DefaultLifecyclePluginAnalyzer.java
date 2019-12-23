@@ -136,7 +136,7 @@ public class DefaultLifecyclePluginAnalyzer
 
         List<Lifecycle> lifecycles = new ArrayList<>( defaultLifeCycles.getLifeCycles() );
 
-        lifecycles.sort(Comparator.comparing(Lifecycle::getId));
+        lifecycles.sort( Comparator.comparing( Lifecycle::getId ) );
 
         return lifecycles;
     }

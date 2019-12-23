@@ -113,7 +113,8 @@ public class DefaultToolchainsBuilder
                     + e.getMessage(), -1, -1, e );
         }
 
-        interpolator.addPostProcessor((expression, value) -> {
+        interpolator.addPostProcessor( ( expression, value ) ->
+        {
             if ( value != null )
             {
                 // we're going to parse this back in as XML so we need to escape XML markup
@@ -121,7 +122,8 @@ public class DefaultToolchainsBuilder
                 return value;
             }
             return null;
-        });
+        }
+        );
 
         try
         {

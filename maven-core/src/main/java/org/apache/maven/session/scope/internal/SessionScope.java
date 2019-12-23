@@ -49,7 +49,8 @@ public class SessionScope
         }
     }
 
-    private static final Provider<Object> SEEDED_KEY_PROVIDER = () -> {
+    private static final Provider<Object> SEEDED_KEY_PROVIDER = () ->
+    {
         throw new IllegalStateException();
     };
 
@@ -130,7 +131,8 @@ public class SessionScope
 
     public <T> Provider<T> scope( final Key<T> key, final Provider<T> unscoped )
     {
-        return () -> {
+        return () ->
+        {
             LinkedList<ScopeState> stack = values.get();
             if ( stack == null || stack.isEmpty() )
             {

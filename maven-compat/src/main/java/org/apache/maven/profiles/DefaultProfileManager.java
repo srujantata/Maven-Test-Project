@@ -186,12 +186,14 @@ public class DefaultProfileManager
         final List<ProfileActivationException> errors = new ArrayList<>();
 
         List<Profile> profiles =
-            profileSelector.getActiveProfiles( profilesById.values(), context, req -> {
+            profileSelector.getActiveProfiles( profilesById.values(), context, req ->
+            {
                 if ( !ModelProblem.Severity.WARNING.equals( req.getSeverity() ) )
                 {
                     errors.add( new ProfileActivationException( req.getMessage(), req.getException() ) );
                 }
-            });
+            }
+            );
 
         if ( !errors.isEmpty() )
         {
